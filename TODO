@@ -1,0 +1,41 @@
+Quando roda-se o dot pra reorganizar os nodos o grafo fica diferente
+de se salvar o .dot e rodar o dot separado. Nao sei quanto ao neato.
+
+A relacao Graph/Digraph ainda esta' inconsistente. Quando um grafo e' 
+criado como Digraph e depois convertido em grafo o numero de arestas
+e o grau dos vertices estao errados.
+
+Nao alocar VETORZAO. Melhorar estrutura de dados em geral.
+
+Inserir pesos em arestas.
+
+Algoritmos passo a passo.
+
+--
+
+Mostrar/NaoMostrar rotulos nas arestas e vertices.
+Poder selecionar arestas e deixa-las com cores diferentes.
+Poder selecionar vertices e deixa-los com cores diferentes.
+Poder selecionar os ctrpts para tornar arestas (e nao necessariamente
+arcos) curvos.
+Ler ctrpts do dot/neato para desenhar os grafos.
+Scriptzinho com apresentacao de grafos?
+
+--
+
+Grafos com pesos nas arestas.
+mais algoritmos (planaridade, coloracao otima?)
+
+--
+Algoritmos para implementar:
+ - Dual
+ - Planar?
+ - Coloracao Otima
+
+--
+
+Interface gtk:
+    - Toolbar configuration dialog;
+    - Confirmar as seguinte ações: new, open (com outro arquivo
+      já aberto), exit e reset graph.
+    - Mais tipos de algoritmos: desenho e construção de grafos;

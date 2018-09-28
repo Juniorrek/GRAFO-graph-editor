@@ -1,0 +1,48 @@
+
+  grafo - graph editor
+  Copyright (c) 2003
+      Murilo Vicente Goncalves da Silva <murilo@pet.inf.ufpr.br>
+      Oliver Matias van Kaick <oliver@pet.inf.ufpr.br>
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU General Public License for more details (file COPYING).
+
+
+
+
+Instructions
+------------
+
+* Compile:
+      cd src;
+      ./configure
+
+  then:
+      make
+  or
+      make CFLAGS=<your flags>
+
+      You need gtk 2.0 libraries to compile the gtk interface.
+      If gtkglarea 2.0, GL and GLU are present, the gtk interface is
+      compiled with opengl support.
+
+
+* Install:
+      make install
+          Installs the executable in the system (directory /usr/bin).
+          You need to be root to do this.
+      make user_install
+          Installs the executable in the user directory (directory
+          ${HOME}/bin).
+
+
+* Configuration file:
+      The file '$(HOME)/.graforc' is created by the program. Preferences
+      are stored in this file.

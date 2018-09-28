@@ -1,0 +1,121 @@
+27/02/2003: 0.1.25: - install script added;
+                    - gtk and glut configure added;
+                    - gtk interface started;
+
+28/02/2003: 0.1.27: - gtk interface with gtkgl area working;
+
+01/03/2003: 0.1.28: - graph options added;
+                    - algorithms support added;
+                    - file options added;
+                    - configuration file support added;
+                    - dot+neato redrawing added;
+
+01/03/2003: 0.1.29: - program icon added;
+
+01/03/2003: 0.1.30: - preferences dialog added;
+
+02/03/2003: 0.1.31: - draw as circle function added;
+                    - complete graph dialog and support added;
+                    - draw as bipartite function added;
+                    - complete bipartite graph dialog and support added;
+
+02/03/2003: 0.1.32: - drawing area/glarea (view mode) switch enabled;
+
+02/03/2003: 0.1.33: - graph drawing with gtk drawing area implemented;
+
+03/03/2003: 0.1.34: - draw struct initialized in main(): gtk interface
+                      may be compiled without gtkglarea;
+                    - Makefile dependencies added with preconf;
+
+05/03/2003: 0.1.35: - complete and bipartite graph degree selection
+                      with spin buttons;
+
+05/03/2003: 0.1.36: - set numeric bipartite degree selection;
+
+05/03/2003: 0.1.37: - plugins support added;
+                    - hello world plugin added;
+
+08/03/2003: 0.1.38: - dependencies added with configure, and not more
+                      with the preconf script;
+                    - gtk version configure corrected (gtkglarea.h);
+                    - open filesel changed with program argument name;
+                    - DrawAsCircle called after transformation
+                      algorithms;
+                    - Statusbar now changed only if drawing changed;
+                    - open and save filesels are rescaned if any file
+                      saved;
+                    - dot and neato filesels filename changed if entry
+                      text changed;
+
+08/03/2003: 0.1.39: - plugins path configuration added;
+                    - datadir path configuration added;
+                    - datadir change and load enabled;
+                    - default view mode configuration and support added;
+                    - filename display in window title;
+
+08/03/2003: 0.1.40: - plugins read parameters functions added;
+                    - added plugins info struct;
+                    - plugins unloaded at exit;
+
+09/03/2003: 0.1.41: - plugins info dialog added;
+                    - plugins dir read only if it exists;
+
+09/03/2003: 0.1.42: - configurable toolbar items added;
+
+10/03/2003: 0.1.43: - preferences dialog ok click bug corrected;
+                    - configurable toolbar items with algorithms, other
+                      labels and pixmap files added;
+
+11/03/2003: 0.1.44: - stock_items (default toolbar items) struct
+                      created;
+
+12/03/2003: 0.1.44: - i/o errors returned in message box;
+                    - call errors returned in message box;
+
+14/03/2003: 0.1.45: - create random graph function added;
+
+14/03/2003: 0.1.46: - many color definitions (color.{c,h}) added;
+
+15/03/2003: 0.1.47: - fit to window option added;
+                    - create regular graph function partially added;
+
+24/03/2003: 0.1.48: - regular graph function commented;
+                    - file format names corrected;
+
+31/03/2003: 0.1.49: - plugin icon in plugin menu items added;
+                    - plugins window clist columns size changed;
+
+14/06/2003: 0.1.51: - created file alghandler.{c,h}. Functions
+                      related with algorithm handler were taken
+                      off the file graph.{c,h} and put in
+                      alghandler.{c,h}.
+                    - conected plugin added.
+                    - chcolor plugin added. Chordal coloring algorithm 
+                      is not built-in anymore.
+
+24/10/2003: 0.1.52: - new graph struct added: variable size graphs
+                      now supported;
+                    - edit vertex and label properties added;
+                    - show vertex label function added;
+                    - plugin flags added: noredraw flag enabled;
+                    - k3 icon used for toolbar functions without and
+                      icon;
+                    - glut interface removed;
+                    - icons directory created;
+                    - AC_CHECK_GTKGL_GTKGLAREA_H macro added to
+                      aclocal.m4 file;
+
+11/11/2003: 0.1.53: - read and write graph functions corrected for new
+                      graph structure;
+
+11/11/2003: 0.1.54: - remove edge/arc functions corrected;
+
+12/11/2003: 0.1.55: - show edge label feature added;
+
+12/11/2003: 0.1.56: - graph/digraph consistency implemented;
+					- vertex/edge properties bugs corrected;
+					- AC_PATH_GTKGL macro added;
+					- edge color change added;
+
+12/11/2003: 0.1.57: - star graph feature added;
+					- algorithms ported to new graph structure;

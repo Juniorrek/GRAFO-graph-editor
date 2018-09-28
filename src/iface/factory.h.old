@@ -1,0 +1,115 @@
+/*
+ *  factory - gtk menu factory
+ *  Copyright (c) 2003
+ *      Oliver Matias van Kaick <oliver@pet.inf.ufpr.br>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *  See the GNU General Public License for more details (file COPYING).
+ */ 
+
+
+/* ************* */
+/* * factory.h * */
+/* ************* */
+
+#ifndef _FACTORY_H_
+#define _FACTORY_H_
+
+
+#ifndef __GTK_H__
+#include <gtk.h>
+#endif
+
+
+/* Item types */
+#define FACTORY_TYPE_NONE    0
+#define FACTORY_TYPE_END     1
+#define FACTORY_TYPE_MENU    2
+#define FACTORY_TYPE_ITEM    3
+#define FACTORY_TYPE_SEP     4
+#define FACTORY_TYPE_CHECK   5
+#define FACTORY_TYPE_RADIO   6
+#define FACTORY_TYPE_RET     7
+#define FACTORY_TYPE_BUTTON  8
+
+/* Pixmap types */
+#define FACTORY_PIXMAP_NONE  0
+#define FACTORY_PIXMAP_DATA  1
+#define FACTORY_PIXMAP_FILE  2
+
+/* Maximum branch levels */
+#define FACTORY_MAX_LEVELS  10
+
+
+/* Factory item */
+typedef struct factory_item {
+    int type;
+    char *name;
+    char *label;
+    char *tooltip;
+    guint accel_key;
+    GdkModifierType accel_mod;
+    gboolean sensitive;
+    int group;
+    gboolean state;
+    GtkSignalFunc callback;
+    gpointer func_data;
+    char *func_name;
+    int pixmap;
+    char *pixmap_name;
+    GtkWidget *widget;
+} factory_item;
+
+
+GtkWidget *factory_menubar(GtkWidget *window, factory_item *item,
+        GtkAccelGroup *window_accels, GtkTooltips *tooltips);
+GtkWidget *factory_toolbar(GtkWidget *window, factory_item *item,
+        GtkAccelGroup *window_accels);
+GtkWidget *factory_menu(GtkWidget *window, factory_item *item,
+        GtkAccelGroup *window_accels, GtkTooltips *tooltips);
+
+GtkWidget *factory_msg_dialog(char *title, char *text,
+        GtkSignalFunc ok_callback);
+GtkWidget *factory_confirm_dialog(char *title, char *text,
+        GtkSignalFunc yes_callback, GtkSignalFunc no_callback);
+GtkWidget *factory_filesel_dialog(char *title,
+        GtkSignalFunc ok_callback, GtkSignalFunc cancel_callback);
+
+void factory_show_msg_dialog(GtkWidget *dialog, char *text);
+void factory_show_fmsg_dialog(GtkWidget *dialog, char *format,...);
+void factory_show_confirm_dialog(GtkWidget *dialog, char *text);
+void factory_show_dialog(GtkWidget *dialog);
+void factory_hide_dialog(GtkWidget *dialog);
+void factory_hide_toplevel_dialog(GtkWidget *widget);
+
+void factory_hide_dialog_callback(GtkWidget *widget,
+        gpointer user_data);
+
+
+/* Default items */
+#define FACTORY_END \
+{ FACTORY_TYPE_END, NULL, NULL, NULL,\
+  0, 0, 0, 0, 0, NULL, NULL, NULL,\
+  0, NULL, NULL },
+#define FACTORY_SEP \
+{ FACTORY_TYPE_SEP, NULL, NULL, NULL,\
+  0, 0, 0, 0, 0, NULL, NULL, NULL,\
+  0, NULL, NULL },
+#define FACTORY_RET \
+{ FACTORY_TYPE_RET, NULL, NULL, NULL,\
+  0, 0, 0, 0, 0, NULL, NULL, NULL,\
+  0, NULL, NULL },
+ 
+
+#endif
+
+/* ******* */
+/* * End * */
+/* ******* */
