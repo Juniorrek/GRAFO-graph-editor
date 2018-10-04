@@ -1894,6 +1894,17 @@ void on_star_graph_item_activate(GtkMenuItem *menuitem,
 }
 
 
+void on_mitzenmacher_random_graph_item_activate(GtkMenuItem *menuitem,
+        gpointer user_data){
+
+    (void) menuitem;
+    (void) user_data;
+
+    gtk_notebook_set_page(GTK_NOTEBOOK(iface.graph_dialog_notebook), 5);
+    factory_show_dialog(iface.graph_dialog);
+}
+
+
 void on_fit_to_window_item_activate(GtkMenuItem *menuitem,
         gpointer user_data){
 int j, k;
@@ -2944,6 +2955,21 @@ float prob;
                 InitGraph(&G, GRAPH);
             }
             CreateStar(&G, i);
+        }
+    } else if (p == 5){
+        i = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(
+                    iface.graph_dialog_mitzenmacher1_spin_button));
+        prob = gtk_spin_button_get_value_as_float(GTK_SPIN_BUTTON(
+                    iface.graph_dialog_mitzenmacher2_spin_button));
+
+        if ((i > 0) && (i < 65535) && (prob >= 0) && (prob <= 1)){
+            if (G.type == DIGRAPH) {
+                InitGraph(&G, DIGRAPH);
+            } else {
+                InitGraph(&G, GRAPH);
+            }
+
+            //CreateRandomGraph(&G, i, prob);
         }
     }
 

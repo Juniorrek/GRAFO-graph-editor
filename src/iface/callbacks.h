@@ -71,6 +71,8 @@ void on_regular_graph_item_activate(GtkMenuItem *menuitem,
         gpointer user_data);
 void on_star_graph_item_activate(GtkMenuItem *menuitem,
         gpointer user_data);
+void on_mitzenmacher_random_graph_item_activate(GtkMenuItem *menuitem,
+        gpointer user_data);
 void on_fit_to_window_item_activate(GtkMenuItem *menuitem,
         gpointer user_data);
 void on_draw_as_circle_item_activate(GtkMenuItem *menuitem,

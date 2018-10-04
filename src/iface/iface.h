@@ -116,6 +116,8 @@ typedef struct iface {
     GtkWidget *graph_dialog_bipartite1_spin_button;
     GtkWidget *graph_dialog_bipartite2_spin_button;
     GtkWidget *graph_dialog_star_spin_button;
+    GtkWidget *graph_dialog_mitzenmacher1_spin_button;
+    GtkWidget *graph_dialog_mitzenmacher2_spin_button;
 
     /* Edit vertex properties dialog */
     GtkWidget *vprop_dialog; 

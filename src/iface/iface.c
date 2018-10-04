@@ -274,6 +274,11 @@ FACTORY_SEP
   GDK_s, GDK_SHIFT_MASK, TRUE, 0, 0,
   (GtkSignalFunc) on_star_graph_item_activate, NULL, NULL,
   FACTORY_PIXMAP_NONE, NULL, NULL, NULL },
+{ FACTORY_TYPE_ITEM, "mitzenmacher", "_Mitzenmacher random graph",
+  "Mitzenmacher random graph",
+  GDK_m, GDK_SHIFT_MASK, TRUE, 0, 0,
+  (GtkSignalFunc) on_mitzenmacher_random_graph_item_activate, NULL, NULL,
+  FACTORY_PIXMAP_NONE, NULL, NULL, NULL },
 FACTORY_RET
 FACTORY_SEP
 { FACTORY_TYPE_MENU, "redrawg", "Re_draw graph", "Redraw graph",
@@ -458,6 +463,8 @@ struct stock_toolbar_items {
         (GtkSignalFunc) on_random_graph_item_activate, NULL },
     { "regular", "Regular", "Generate regular graph",
         (GtkSignalFunc) on_regular_graph_item_activate, NULL },
+    { "mitzenmacher", "Mitzenmacher random", "Generate Mitzenmacher random graph",
+        (GtkSignalFunc) on_mitzenmacher_random_graph_item_activate, NULL },
     { "circle", "Circle", "Redraw graph as circle",
         (GtkSignalFunc) on_draw_as_circle_item_activate, NULL },
     { "neato", "Neato", "Redraw graph using neato",
@@ -1425,6 +1432,46 @@ GtkObject *adj;
         GTK_FILL | GTK_EXPAND, GTK_FILL, 4, 4);
 
     label = gtk_label_new("Star graph");
+    gtk_notebook_append_page(GTK_NOTEBOOK(
+            iface.graph_dialog_notebook), table, label);
+
+    /* Mitzenmacher random graph */
+    table = gtk_table_new(3, 3, FALSE);
+    gtk_container_set_border_width(GTK_CONTAINER(table), 10);
+    gtk_widget_set_usize(table, 500, 100);
+    gtk_widget_show(table);
+   
+    label = gtk_label_new("Number of vertices");
+    gtk_widget_show(label);
+    gtk_table_attach(GTK_TABLE(table), label, 0, 1, 0, 1,
+            GTK_FILL, GTK_FILL, 4, 4);
+
+    adj = gtk_adjustment_new(3, 1, 65535, 1, 10, 10);
+    iface.graph_dialog_mitzenmacher1_spin_button =
+            gtk_spin_button_new(GTK_ADJUSTMENT(adj), 0, 0);
+    gtk_spin_button_set_numeric(GTK_SPIN_BUTTON(
+            iface.graph_dialog_mitzenmacher1_spin_button), TRUE);
+    gtk_widget_show(iface.graph_dialog_mitzenmacher1_spin_button);
+    gtk_table_attach(GTK_TABLE(table),
+        iface.graph_dialog_mitzenmacher1_spin_button, 1, 2, 0, 1,
+        GTK_FILL | GTK_EXPAND, GTK_FILL, 4, 4);
+
+    label = gtk_label_new("Edge probability");
+    gtk_widget_show(label);
+    gtk_table_attach(GTK_TABLE(table), label, 0, 1, 1, 2,
+            GTK_FILL, GTK_FILL, 4, 4);
+
+    adj = gtk_adjustment_new(0.5, 0, 1, 0.1, 0.1, 0.1);
+    iface.graph_dialog_mitzenmacher2_spin_button =
+            gtk_spin_button_new(GTK_ADJUSTMENT(adj), 0, 4);
+    gtk_spin_button_set_numeric(GTK_SPIN_BUTTON(
+            iface.graph_dialog_mitzenmacher2_spin_button), TRUE);
+    gtk_widget_show(iface.graph_dialog_mitzenmacher2_spin_button);
+    gtk_table_attach(GTK_TABLE(table),
+        iface.graph_dialog_mitzenmacher2_spin_button, 1, 2, 1, 2,
+        GTK_FILL | GTK_EXPAND, GTK_FILL, 4, 4);
+    
+    label = gtk_label_new("Mitzenmacher random graph");
     gtk_notebook_append_page(GTK_NOTEBOOK(
             iface.graph_dialog_notebook), table, label);
    
