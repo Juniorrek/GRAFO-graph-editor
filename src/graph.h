@@ -156,6 +156,7 @@ void CreateKn(Graph *G, int n);
 void CreateKnn(Graph *G, int n1, int n2);
 void CreateRegular(Graph *G, int n, int r);
 void CreateStar(Graph *G, int n);
+void CreateMitzenmacherRandomGraph(Graph *G, int n, float p);
 
 char *DotChooseColor(int i, Graph *G);
 Color Rgb2Code(RGB value);

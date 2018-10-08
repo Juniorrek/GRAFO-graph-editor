@@ -1441,7 +1441,7 @@ GtkObject *adj;
     gtk_widget_set_usize(table, 500, 100);
     gtk_widget_show(table);
    
-    label = gtk_label_new("Number of vertices");
+    label = gtk_label_new("Number of times");
     gtk_widget_show(label);
     gtk_table_attach(GTK_TABLE(table), label, 0, 1, 0, 1,
             GTK_FILL, GTK_FILL, 4, 4);
@@ -1456,7 +1456,7 @@ GtkObject *adj;
         iface.graph_dialog_mitzenmacher1_spin_button, 1, 2, 0, 1,
         GTK_FILL | GTK_EXPAND, GTK_FILL, 4, 4);
 
-    label = gtk_label_new("Edge probability");
+    label = gtk_label_new("Gamma probability");
     gtk_widget_show(label);
     gtk_table_attach(GTK_TABLE(table), label, 0, 1, 1, 2,
             GTK_FILL, GTK_FILL, 4, 4);

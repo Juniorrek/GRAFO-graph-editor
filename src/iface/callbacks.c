@@ -2969,12 +2969,12 @@ float prob;
                 InitGraph(&G, GRAPH);
             }
 
-            //CreateRandomGraph(&G, i, prob);
+            CreateMitzenmacherRandomGraph(&G, i, prob);
         }
     }
 
     /* Change point coordinates */
-    if ((p == 0) || (p == 2) || (p ==3))
+    if ((p == 0) || (p == 2) || (p == 3) || (p == 5))
         RedrawAsCircle(&G, iface.width, iface.height);
     else if (p == 1)
         RedrawAsBipartite(&G, iface.width, iface.height, i, j);

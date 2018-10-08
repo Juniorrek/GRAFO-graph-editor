@@ -607,6 +607,60 @@ int i;
 }
 
 
+
+void CreateMitzenmacherRandomGraph(Graph *G, int n, float p) {
+int i,j;
+
+    srand(time(NULL));
+    InitGraph(G, G->type);
+
+    //Configuracao inicial
+    AddPoint(G, 0, 0);
+    AddPoint(G, 0, 0);
+    AddEdge(G, 0, 1);
+    //AddEdge(G, 1, 0);//Nao gera multiarestas :(
+
+    //Geracao do grafo
+    for (i = 2; i < n + 2; i++) {
+        AddPoint(G, 0, 0);
+
+        //Encontra um destino valido
+        int b = random()%i;
+        while (b == i) {
+            b = random()%i;
+        }
+
+        if (p > (random() / (float) RAND_MAX)) {//Liga aleatoriamente
+            AddEdge(G, i, b);
+            fprintf(stderr, "Ligando novo vertice %d aleatoriamente ao vertice %d\n", i, b);
+        } else {//Copia uma aresta aleatoriamente
+            //Pega pares aleatorios de vertices e ve se tem aresta
+            int a = random()%i;
+            b = random()%i;
+
+            //Melhorar essa gambi
+            while ((a == i || b == i || a == b) && G->edge[a][b]  == 0) {
+                a = random()%i;
+                b = random()%i;
+            }
+
+            AddEdge(G, i, b);
+            fprintf(stderr, "Copiando aresta (%d,%d) para o novo vertice %d\n", a, b, i);
+        }
+    }
+
+    int num;
+    for (i = 1; i < G->size; i++) {//Possiveis graus, melhorar...
+        num = 0;
+        for (j = 0; j < G->size; j++) {//Todos os vertices
+            //fprintf(stderr, "Grau do vertice %d: %d\n", j, G->vertex[j].degree);
+            if (G->vertex[j].degree == i) num++;
+        }
+        fprintf(stderr, "Numero de vertices com grau %d: %d\n", i, num);
+    }
+}
+
+
 char *DotChooseColor(int i, Graph *G) {
 char *color;
 
