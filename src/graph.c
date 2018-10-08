@@ -625,23 +625,20 @@ int i,j;
         AddPoint(G, 0, 0);
 
         //Encontra um destino valido
-        int b = random()%i;
-        while (b == i) {
-            b = random()%i;
-        }
+        int b = random()%(i-1);
 
         if (p > (random() / (float) RAND_MAX)) {//Liga aleatoriamente
             AddEdge(G, i, b);
             fprintf(stderr, "Ligando novo vertice %d aleatoriamente ao vertice %d\n", i, b);
         } else {//Copia uma aresta aleatoriamente
             //Pega pares aleatorios de vertices e ve se tem aresta
-            int a = random()%i;
-            b = random()%i;
+            int a = random()%(i-1);
+            b = random()%(i-1);
 
             //Melhorar essa gambi
-            while ((a == i || b == i || a == b) && G->edge[a][b]  == 0) {
-                a = random()%i;
-                b = random()%i;
+            while (a == b && G->edge[a][b]  == 0) {
+                a = random()%(i-1);
+                b = random()%(i-1);
             }
 
             AddEdge(G, i, b);
