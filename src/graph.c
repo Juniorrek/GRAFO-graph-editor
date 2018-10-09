@@ -618,7 +618,7 @@ int i,j;
     AddPoint(G, 0, 0);
     AddPoint(G, 0, 0);
     AddEdge(G, 0, 1);
-    //AddEdge(G, 1, 0);//Nao gera multiarestas :(
+    AddEdge(G, 1, 0);//Nao gera multiarestas :(
 
     //Geracao do grafo
     for (i = 2; i < n + 2; i++) {
